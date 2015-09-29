@@ -1,0 +1,26 @@
+﻿<Window x:Class="View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel" 
+        Title="MainWindow" Height="500" Width="525">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,-20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="ButtonClick" Content="Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="333" Height="80" FontSize="48" Command="{Binding ButtonCommand}" Margin="92,10,0,0" />
+        <TextBox  Grid.Row="1" FontSize="48" 
+                  VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  Text="{Binding Path=Text.Text}" Width="333"/>
+        <Button x:Name="ButtonClick2" Content="Click2" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="333" Height="80" FontSize="48" 
+                Command="{Binding ButtonCommand2}"   CommandParameter="{Binding ElementName=txtBoxGruss,Path=Text}"
+                Margin="92,10,0,0" Grid.Row="2"/>
+        <TextBox Grid.Row="3" Name="txtBoxGruss" FontSize="48" 
+                  VerticalAlignment="Center" HorizontalAlignment="Center" Width="333" Text="Fi11" />
+    </Grid>
+</Window>
